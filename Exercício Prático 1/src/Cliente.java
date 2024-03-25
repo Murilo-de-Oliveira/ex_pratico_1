@@ -26,10 +26,27 @@ public class Cliente {
         return precoTotal;
     }
 
-    void showPC(){
+    void mostraPC(){
+        int cont = 0;
         for(Computador computador : computadores){
             if(computador != null){
-                System.out.println("Computador");
+                cont++;
+                switch(computador.marca){
+                    case "Positivo" -> System.out.println("Computador da promoção 1");
+                    case "Acer" -> System.out.println("Computador da promoção 2");
+                    case "Vaio" ->System.out.println("Computador da promoção 3");
+                }
+            }
+        }
+        if(cont == 0){
+            System.out.println("Nenhum pc comprado");
+        }
+    }
+
+    void mostraPCFinal(){
+        for(Computador computador : computadores){
+            if(computador != null){
+                computador.mostraPCConfigs();
             }
         }
     }

@@ -53,7 +53,8 @@ public class Main {
             System.out.println("Olá, bem vindo a promoção da PCMania!");
             System.out.println("1 - Comprar um pc");
             System.out.println("2 - Ver pc's disponíveis");
-            System.out.println("3 - Sair");
+            System.out.println("3 - Lista de pc's adquiridos");
+            System.out.println("4 - Sair");
             System.out.print("Opção: ");
             int option = input.nextInt();
             switch (option){
@@ -70,16 +71,19 @@ public class Main {
                            case 3 -> cliente.addComputador(computador3);
                        }
                     }
-                    cliente.showPC();
                 }
                 case 2 -> {
                     computador1.mostraPCConfigs();
                     computador2.mostraPCConfigs();
                     computador3.mostraPCConfigs();
                 }
-                case 3 -> {
+                case 3 -> cliente.mostraPC();
+                case 4 -> {
                     flag = false;
+                    System.out.println("Nome do cliente: " + cliente.nome);
+                    System.out.println("CPF: " + cliente.cpf);
                     System.out.println("Valor da compra: " + cliente.calculaTotalCompra());
+                    cliente.mostraPCFinal();
                 }
                 default -> System.out.println("Inválido");
             }
